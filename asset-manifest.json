@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Task1_React_Props/static/css/main.14882df0.css",
+    "main.js": "/Task1_React_Props/static/js/main.9b2492e5.js",
+    "index.html": "/Task1_React_Props/index.html",
+    "main.14882df0.css.map": "/Task1_React_Props/static/css/main.14882df0.css.map",
+    "main.9b2492e5.js.map": "/Task1_React_Props/static/js/main.9b2492e5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14882df0.css",
+    "static/js/main.9b2492e5.js"
+  ]
+}

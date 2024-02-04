@@ -1,0 +1,116 @@
+1. Using <React.Fragment>...</React.Fragment>, we can add a parent tag to our JSX elements without adding an additional node to the DOM.
+
+When working with React, there are cases where you will need to render multiple elements or return a group of associated elements. Here's an example:
+
+
+function App() {
+  return (
+    <h1>Hello React!</h1>
+    <h1>Hello React Again!</h1>
+  );
+}
+
+If you try to run your application with the above code, you will encounter an error indicating that adjacent JSX elements must be wrapped in a wrapper tag. This means that you need to wrap both elements in a parent div.
+
+function App() {
+  return (
+    <div>
+      <h1>Hello React!</h1>
+      <h1>Hello React Again!</h1>
+    </div>
+  );
+}
+
+This will correct the error, but there is a degree of risk involved. You're adding an extra node to the DOM, which isn't necessary. In a case like this, where the above is a child component that will be enclosed in a parent component, it becomes a problem.
+
+
+function Table() {
+  return (
+    <table>
+      <td>This is a Table Component</td>
+      <Columns />
+    </table>
+  );
+}
+
+function Columns() {
+  return (
+    <div>
+      <td>Hello React!</td>
+      <td>Hello React Again!</td>
+    </div>
+  );
+}
+
+When you're working with React, there are cases where you'll need to render several elements or return a group of associated elements. Here's an example:
+
+function App() {
+  return (
+    <h1>Hello React!</h1>
+    <h1>Hello React Again!</h1>
+  );
+}
+If you try to run your application with the above code, you will encounter an error indicating that adjacent JSX elements must be wrapped in a wrapper tag. This means that you need to wrap both elements in a parent div.
+
+function App() {
+  return (
+    <div>
+      <h1>Hello React!</h1>
+      <h1>Hello React Again!</h1>
+    </div>
+  );
+}
+
+This will correct the error, but there is a degree of risk involved. You're adding an extra node to the DOM, which isn't necessary. In a case like this, where the above is a child component that will be enclosed in a parent component, it becomes a problem.
+
+function Table() {
+  return (
+    <table>
+      <td>This is a Table Component</td>
+      <Columns />
+    </table>
+  );
+}
+
+function Columns() {
+  return (
+    <div>
+      <td>Hello React!</td>
+      <td>Hello React Again!</td>
+    </div>
+  );
+}
+The resulting HTML code for the Table component will not be valid because of the extra div added.
+
+function Table() {
+  return (
+    <table>
+      <td>This is a Table Component</td>
+      <div>
+        <td>Hello React!</td>
+        <td>Hello React Again!</td>
+      </div>      
+    </table>
+  );
+}
+
+Let's take a look at a better way to solve this problem using React Fragment, which won't add any extra nodes to the DOM. The syntax looks like this:
+
+function Columns() {
+  return (
+    <React.Fragment>
+      <td>Hello React!</td>
+      <td>Hello React Again!</td>
+    </React.Fragment>
+  );
+}
+You can also use the short syntax <></> to declare a Fragment.
+
+function Columns() {
+  return (
+    <>
+      <td>Hello React!</td>
+      <td>Hello React Again!</td>
+    </>
+  );
+}
